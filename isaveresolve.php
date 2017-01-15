@@ -6,7 +6,7 @@ class iSaveResolve extends Module
 	public function __construct(){  
 		$this->name = 'isaveresolve';
 		$this->tab = 'tab';
-		$this->version = '1.0';
+		$this->version = '1.2';
 		$this->bootstrap = true;
 		$this->author = 'iPresta.ir';
 
@@ -93,7 +93,9 @@ class iSaveResolve extends Module
 	
 	public function hookDisplayBackofficeHeader()
 	{
-		$this->context->controller->addJS($this->_path.'js/admin.js');
+		if (Tools::getValue('controller') != 'AdminProducts')
+			return false;
+		$this->context->controller->addJS($this->_path.'js/admin2.js');
 	}
 
 
